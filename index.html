@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Критерій 2: Метадані -->
+    <meta name="description" content="Тематична вебсторінка про еволюцію мобільних комунікацій: від перших стандартів до мереж 5G, 6G та IoT.">
+    <meta name="keywords" content="мобільні комунікації, 5G, 6G, IoT, архітектура мереж, бездротовий зв'язок">
+    <meta name="author" content="Аріна">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="MOB.COMM | Мобільні комунікації">
+    <meta property="og:description" content="Огляд еволюції та інфраструктури сучасного бездротового зв'язку.">
+    
+    <title>MOBTEL.COM | Мобільні комунікації (Варіант 6)</title>
+
+    <!-- Підключення шрифту Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS стилістика (Варіант 6) -->
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --accent-cyan: #00f2fe;
+            --accent-blue: #4facfe;
+            --accent-purple: #7b2cbf;
+            --accent-red: #ff2a5f;
+            --text-light: #f1f5f9;
+            --text-dim: #94a3b8;
+            --card-bg: rgba(15, 23, 42, 0.75);
+            --border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+       
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(123, 44, 191, 0.15) 0%, transparent 45%),
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+    
+        .cursor {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.5);
+        }
+        
+        .cursor.hovered {
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 242, 254, 0.15);
+            border-color: var(--accent-blue);
+        }
+
+       
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 16px;
+        }
+
+        
+        .nav-btn {
+            position: relative;
+            padding: 10px 22px;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-btn:hover {
+            color: #0b0f19;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO СЕКЦІЯ  --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 60px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+     
+        h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            color: #ffffff;
+            text-shadow: 0 0 25px rgba(0, 242, 254, 0.5), 0 0 45px rgba(123, 44, 191, 0.35);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+        }
+
+        .hero-img-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 85%;
+            height: 75%;
+            z-index: 1;
+            opacity: 0.25;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- СЕКЦІЇ КОНТЕНТУ --- */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.7;
+        }
+
+        .section-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 45px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .section-content p {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        /* Форматування тексту */
+        mark { background: rgba(0, 242, 254, 0.2); color: var(--accent-cyan); padding: 2px 8px; border-radius: 4px; }
+        dfn { font-style: normal; font-weight: 700; color: var(--accent-blue); }
+
+        
+
+        /* Перше зображення: кругле (border-radius: 50%), однакові width/height, кольорова межа червоного кольору */
+        .img-round {
+            display: block;
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--accent-red);
+            margin: 30px 0 10px 0;
+            box-shadow: 0 0 25px rgba(255, 42, 95, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .img-round:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 35px rgba(255, 42, 95, 0.7);
+        }
+
+        /* Друге зображення: мініатюра ~20% сторінки, межа суцільна, внутрішній відступ 20px, border-radius, scale при hover */
+        .img-thumb-container {
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .img-thumb {
+            display: block;
+            width: 20vw; 
+            min-width: 220px;
+            height: auto;
+            border: 3px solid var(--accent-cyan); 
+            padding: 20px; 
+            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.9);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .img-thumb:hover {
+            transform: scale(1.08); 
+            border-color: var(--accent-blue);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.35);
+        }
+
+  
+        a.ext-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-cyan);
+            padding-bottom: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        a.ext-link:hover {
+            color: #ffffff;
+            border-bottom-style: solid;
+            background: rgba(0, 242, 254, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: rgba(5, 8, 15, 0.95);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 40px 30px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            .section { grid-template-columns: 1fr; gap: 15px; }
+            .section-content { padding: 25px; }
+            .img-thumb { width: 60vw; }
+        }
+    </style>
+</head>
+<body>
+
+   
+    <div class="cursor" id="custom-cursor"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">MOB.COMM</div>
+        <nav>
+            <a href="#hero" class="nav-btn hover-target">Головна</a>
+            <a href="#basics" class="nav-btn hover-target">Основи</a>
+            <a href="#arch" class="nav-btn hover-target">Архітектура</a>
+        </nav>
+    </header>
+
+    <!-- Hero Секція -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+       
+            <h1>Мобільні<br>Комунікації</h1>
+            <p>Еволюція бездротового зв'язку від перших стандартів до надшвидкісних мереж 5G/6G</p>
+            <a href="#basics" class="nav-btn hover-target" style="padding: 14px 32px; font-size: 1rem;">Дізнатися більше ↓</a>
+        </div>
+        
+        <div class="hero-img-wrapper">
+          
+            <img src="tower.jpg" alt="Вежа мобільного зв'язку та інфраструктура">
+        </div>
+    </section>
+
+    <main class="main-container">
+
+        <!-- Секція 01 -->
+        <section class="section" id="basics">
+            <div class="section-number">01</div>
+            <div class="section-content">
+                <h2>Основи технології</h2>
+                
+                <p><strong><u><dfn>Мобільні комунікації</dfn></u></strong> є фундаментальним складником сучасної глобальної інфраструктури, що базується на принципах <i>мобільного зв'язку</i> та <strong>безпроводового передавання даних</strong> через <i><small>радіочастотний спектр</small></i>.</p>
+                
+                <p>Еволюція цих технологій — до надшвидкісних мереж 5G та перспективних 6G — забезпечила перехід від простого обміну голосовими сигналами до високошвидкісного мобільного інтернету та концепції <s>Інтернету речей (IoT)</s>.</p>
+
+                <!-- Зображення 1 (wires.jpg): Кругле, 280x280px, червона межа -->
+                <img src="assets/wires.jpg" alt="Дратоване обладнання та комутаційні сервери" class="img-round hover-target">
+            </div>
+        </section>
+
+        <!-- Секція 02 -->
+        <section class="section" id="arch">
+            <div class="section-number">02</div>
+            <div class="section-content">
+                <h2>Архітектура та еволюція мереж</h2>
+                
+                <p>Функціонування мобільних мереж опирається на складну архітектуру, яка об'єднує базові станції, центри комутації та смартфони для <big>безперервного обслуговування</big> трафіку користувачів. <u><s>З наукової точки зору</s></u>, оптимізація мобільного зв’язку вимагає вирішення критичних інженерних завдань, зокрема <mark>ефективного кодування каналів</mark>, мінімізації інтерференції та раціонального розподілу частотного ресурсу.<br> 
+                У підсумку, ця технологічна сфера стала головним <strong>драйвером</strong> цифровізації сучасної світової економіки.</p>
+
+                <!-- Зображення 2 (5g-thumb.jpg): Мініатюра 20vw, padding 20px, border-radius, scale при hover, посилання на джерело -->
+                <div class="img-thumb-container">
+                    <a href="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1000" target="_blank" class="hover-target" title="Офіційний огляд 5G технологій від Qualcomm (EN)">
+                        <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Концепція технології 5G" class="img-thumb">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Про проєкт</h3>
+                <p style="font-size: 0.9rem; color: var(--text-dim);">Тематична вебсторінка про еволюцію мобільних комунікацій. Створено згідно з вимогами лабораторної роботи (Варіант 6).</p>
+            </div>
+            <div class="footer-col">
+                <h3>Навігація</h3>
+                <ul>
+                    <li><a href="#hero" class="ext-link hover-target">Головна</a></li>
+                    <li><a href="#arch" class="ext-link hover-target">Архітектура</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Ресурси (UA / EN)</h3>
+                <ul>
+                    
+                    <li><a href="https://thedigital.gov.ua/" target="_blank" class="ext-link hover-target">Мінцифри України (UA) ↗</a></li>
+                    <li><a href="https://www.gsma.com/" target="_blank" class="ext-link hover-target">GSMA Mobile Economy (EN) ↗</a></li>
+                    <li><a href="https://www.ieee.org/" target="_blank" class="ext-link hover-target">IEEE Communications Society (EN) ↗</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Автор</h3>
+                <p style="font-size: 0.9rem; color: var(--text-dim);">Виконила: Чекотун Аріна<br>Варіант: 6</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 — Навчальна робота. Варіант 6 — Мобільні комунікації.
+        </div>
+    </footer>
+
+    <!-- JS для курсора -->
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+        const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                cursor.classList.add('hovered');
+            });
+            target.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hovered');
+            });
+        });
+    </script>
+</body>
+</html>
